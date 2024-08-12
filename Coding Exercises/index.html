@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="box milk-calculator">
+            <label for="startingMoney">Avalible money</label>
+            <input type="number" id="startingMoney">
+
+            <label for="costPerBottle">Milk bottle cost</label>
+            <input type="number" id="costPerBottle">
+
+            <button id="buttonCalcMilk">Calculate</button>
+
+            <label for="bottlesPurchased">Milk bottles bought</label>
+            <input type="text" id="bottlesPurchased" disabled>
+
+            <label for="remainingMoney">Change</label>
+            <input type="text" id="remainingMoney" disabled>
+        </div><!--milk-calculator-->
+
+        <div class="box bmi-calculator">
+            <label for="weight">Weight</label>
+            <input type="number" id="weight">
+
+            <label for="height">Height</label>
+            <input type="number" id="height">
+
+            <button id="buttonCalcBMI">Calculate</button>
+
+            <label for="bmi">BMI</label>
+            <input type="text" id="bmi" disabled>
+        </div><!--bmi-calculator-->
+
+    </div><!--container-->
+
+    <script src="./script.js"></script>
+</body>
+</html>

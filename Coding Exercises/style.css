@@ -1,0 +1,31 @@
+.container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+button {
+    margin-bottom: 20px;
+    padding: 8px 4px;
+    display: block;
+    border: none;
+    color: white;
+    background-color: #707070;
+}
+
+input {
+    margin: 5px 0 10px 0;
+    border: none;
+    padding: 8px 4px;
+    background-color: white;
+}
+
+.box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    min-height: 200px;
+    background-color: #ebebeb;
+    padding: 20px 10px;
+    margin: 20px 0;
+}
