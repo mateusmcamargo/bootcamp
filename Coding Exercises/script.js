@@ -99,47 +99,161 @@ console.log(Math.random());
 //#region guest list
 
 //DOM
-//add
+//add guests elements
 const inputGuestAdd    = document.getElementById('inputGuestAdd');
 const buttonGuestAdd   = document.getElementById('buttonGuestAdd');
 const pGuestAdd        = document.getElementById('pGuestAdd');
-//check
+//check guests elements
 const inputGuestCheck  = document.getElementById('inputGuestCheck');
 const buttonGuestCheck = document.getElementById('buttonGuestCheck');
 const pGuestCheck      = document.getElementById('pGuestCheck');
+//guest list elements
+const listGuest        = document.getElementById('listGuest');
 
 //variables
 let guests = [];
 
-function addGuest(guest) {
-    guests.push(guest);
-}
-
-function checkGuest(guest) {
-    for (let i = 0; i < guests.length; i ++) {
-        if (guests[i] === guest) {
-            pGuestCheck.innerText = guest + ' is on the list!';
-            return;
-        }
-        pGuestCheck.innerText = guest + ' is NOT on the list :(';
-    }
-}
-
+// function captilize(string)
+//  takes a 'string' as argument and returns a new one, where the first char is capitalized, keeping the others unchanged
+//  'charAt(0)' gets the first char of 'string', then 'toUpperCase()' capitalizes it
+//  this first char is then concatenated with the rest of the string using 'slice(1)'
+//  returns newString
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+// function addGuest(guest)
+//  adds a guest to the end of the 'guests' array using the method 'push'
+function addGuest(guest, infoElement) {
+    guests.push(guest);
+    guest = capitalize(guest);
+    infoElement.innerText = guest + ' adicionado.';
+
+    let li = document.createElement('li');
+    li.textContent = guest;
+    listGuest.appendChild(li);
+}
+
+// function checkGuest(guest, infoElement)
+//  checks if a given 'guest' (string) exists in the 'guests' array
+//  based on the output displays a diferent message on a given 'infoElement'
+function checkGuest(guest, infoElement) {
+    //check if array is empty
+    if (guests.length <= 0) {
+        infoElement.innerText = 'the guest list is empty :(';
+    } else {
+        //guest = capitalize(guest);
+        //check 'typeof' 'guest' and if it is empty
+        if (guest === "" || typeof(guest) !== "string") {
+            infoElement.innerText = 'please enter a valid name';
+        } else {
+            //if everything checks out, confirm 'guest' is on the list
+            if (guests.includes(guest)) {
+                infoElement.innerText = guest + ' is on the list!';
+                return;
+            } else {
+                //if something goes wrong, confirm 'guest' is NOT on the list
+                infoElement.innerText = guest + ' is NOT on the list :(';
+            }
+        }
+    }
+}
+
+
+
+// // function checkGuest(guest, infoElement)
+// //  checks if a given 'guest' (string) exists in the 'guests' array
+// //  based on the output displays a diferent message on a given 'infoElement'
+// function checkGuest(guest, infoElement) {
+//     //check if array is empty
+//     if (guests.length <= 0) {
+//         infoElement.innerText = 'the guest list is empty :(';
+//     } else {
+//         //if not empty, run a for loop throughout the array
+//         for (let i = 0; i < guests.length; i ++) {
+//             //check 'typeof' 'guest' and if it is empty
+//             if (guest === "" || typeof(guest) !== "string") {
+//                 infoElement.innerText = 'please enter a valid name';
+//             } else {
+//                 //if everything checks out, confirm 'guest' is on the list
+//                 if (guests[i] === guest) {
+//                     guest = capitalize(guest);
+//                     infoElement.innerText = guest + ' is on the list!';
+//                     return;
+//                 }
+//                 //if something goes wrong, confirm 'guest' is NOT on the list
+//                 infoElement.innerText = guest + ' is NOT on the list :(';
+//             }
+//         }
+//     }
+// }
+
+
+
+// eventListener for buttonGuestAdd
+// the input value string is added to the 'guests' array using the 'guestAdd()' function
 buttonGuestAdd.addEventListener('click', () => {
     let guestAdd = inputGuestAdd.value;
-    guestAdd = capitalize(guestAdd);
-    addGuest(guestAdd);
-    pGuestAdd.innerText = guestAdd + ' adicionado.';
+    addGuest(guestAdd, pGuestAdd);
 });
 
 buttonGuestCheck.addEventListener('click', () => {
     let guestCheck = inputGuestCheck.value;
-    guestCheck     = capitalize(guestCheck);
-    checkGuest(guestCheck);
+    checkGuest(guestCheck, pGuestCheck);
 });
 
 //#endregion
+
+//#region FizzBuzz
+
+    // Given an integer n, return a string array answer (1-indexed) where:
+
+    // answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
+    // answer[i] == "Fizz" if i is divisible by 3.
+    // answer[i] == "Buzz" if i is divisible by 5.
+    // answer[i] == i (as a string) if none of the above conditions are true.
+
+//DOM
+const inputFizzBuzz  = document.getElementById('inputFizzBuzz');
+const buttonFizzBuzz = document.getElementById('buttonFizzBuzz');
+const outputFizzBuzz = document.getElementById('outputFizzBuzz');
+
+let number = [];
+
+buttonFizzBuzz.addEventListener('click', () => {
+    outputFizzBuzz.textContent = "";
+    number.length = inputFizzBuzz.value;
+
+    for (let i = 0; i < number.length;) {
+        let answer = document.createElement('p');
+        answer.classList.add('fizz-buzz');
+
+        if ((number.length % 3 === 0) && (number.length % 5 === 0)) {
+            answer.textContent = 'FizzBuzz';
+            console.log(number.length + ': FizzBuzz (%3 and %5)');
+        } else
+        if (number.length % 3 === 0) {
+            answer.textContent = 'Fizz';
+            console.log(number.length + ': Fizz (% 3)');
+        } else
+        if (number.length % 5 === 0) {
+            answer.textContent = 'Buzz';
+            console.log(number.length + ': Buzz (% 5)');
+        } else {
+            answer.textContent = number.length.toString();
+            console.log(number.length + ': not divisible');
+        }
+        outputFizzBuzz.appendChild(answer);
+        number.length --;
+    }
+
+    // let fb = document.createElement('p');
+    // fb.classList.add('fizz-buzz');
+    // fb.textContent = number;
+    // outputFizzBuzz.appendChild(fb);
+});
+
+
+
+//#endregion
+
