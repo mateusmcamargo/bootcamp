@@ -1,9 +1,25 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	line-height: 1;
+	list-style: none;
+    box-sizing: border-box;
+}
+
 .container {
     width: 50%;
     margin: 0 auto;
 }
 
 button {
+    width: 100%;
+    align-self: center;
     margin-bottom: 20px;
     padding: 8px 4px;
     display: block;
@@ -13,6 +29,7 @@ button {
 }
 
 input {
+    width: 100%;
     margin: 5px 0 10px 0;
     border: none;
     padding: 8px 4px;
@@ -20,6 +37,7 @@ input {
 }
 
 .box {
+    width: 200px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;

@@ -43,6 +43,7 @@ const inputWeight   = document.getElementById('weight');
 const inputHeight   = document.getElementById('height')
 const buttonCalcBMI = document.getElementById('buttonCalcBMI');
 const inputBMI      = document.getElementById('bmi');
+const pBMI          = document.getElementById('bimDescription');
 
 //calculate BMI according to given weight and height
 function calculateBMI(weight, height) {
@@ -52,8 +53,38 @@ function calculateBMI(weight, height) {
     return bmi;
 }
 
+//check if the value entered checks all requisites
+//needs to be a number, not 0, not infinite
+//if conditions are not met, display an error message
+function checkBMI(bmi) {
+    if (bmi === Infinity) {
+        return "NUMBERS INCOMPLETE"
+    } else
+    if (bmi === 0) {
+        return "NUMBERS RESULT IN 0"
+    } else {
+        return bmi;
+    }
+}
+
+//buttonCalcBMI event listener
+//get bmi inputs values and inject them at specified areas
 buttonCalcBMI.addEventListener('click', () => {
-    inputBMI.value = calculateBMI(inputWeight.value, inputHeight.value);
+
+    //store bmi 
+    let val = calculateBMI(inputWeight.value, inputHeight.value);
+
+    //check bmi value
+    inputBMI.value = checkBMI(val);
+
+    if (inputBMI.value < 18.5) {
+        pBMI.innerText = "you are underweight.";
+    } else
+    if (inputBMI.value >= 18.5 && inputBMI.value <= 24.9) {
+        pBMI.innerText = "you have normal weight.";
+    } else {
+        pBMI.innerText = "you are overweight.";
+    }
 });
 
 //#endregion
@@ -62,5 +93,13 @@ buttonCalcBMI.addEventListener('click', () => {
 
 console.log("\x1b[32m%s\x1b[0m", "Math.random()");
 console.log(Math.random());
+
+//#endregion
+
+//#region guest list
+
+//DOM
+const guestInput       = document.getElementById('guestName');
+const buttonCheckGuest = document.getElementById('buttonCheckGuest');
 
 //#endregion
