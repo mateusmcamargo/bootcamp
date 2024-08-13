@@ -116,12 +116,13 @@ function addGuest(guest) {
 }
 
 function checkGuest(guest) {
-    guests.forEach((g) => {
-        if (g == guest) {
+    for (let i = 0; i < guests.length; i ++) {
+        if (guests[i] === guest) {
             pGuestCheck.innerText = guest + ' is on the list!';
+            return;
         }
-    });
-    
+        pGuestCheck.innerText = guest + ' is NOT on the list :(';
+    }
 }
 
 function capitalize(string) {
