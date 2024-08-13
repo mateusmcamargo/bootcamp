@@ -99,7 +99,46 @@ console.log(Math.random());
 //#region guest list
 
 //DOM
-const guestInput       = document.getElementById('guestName');
-const buttonCheckGuest = document.getElementById('buttonCheckGuest');
+//add
+const inputGuestAdd    = document.getElementById('inputGuestAdd');
+const buttonGuestAdd   = document.getElementById('buttonGuestAdd');
+const pGuestAdd        = document.getElementById('pGuestAdd');
+//check
+const inputGuestCheck  = document.getElementById('inputGuestCheck');
+const buttonGuestCheck = document.getElementById('buttonGuestCheck');
+const pGuestCheck      = document.getElementById('pGuestCheck');
+
+//variables
+let guests = [];
+
+function addGuest(guest) {
+    guests.push(guest);
+}
+
+function checkGuest(guest) {
+    guests.forEach((g) => {
+        if (g == guest) {
+            pGuestCheck.innerText = guest + ' is on the list!';
+        }
+    });
+    
+}
+
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+buttonGuestAdd.addEventListener('click', () => {
+    let guestAdd = inputGuestAdd.value;
+    guestAdd = capitalize(guestAdd);
+    addGuest(guestAdd);
+    pGuestAdd.innerText = guestAdd + ' adicionado.';
+});
+
+buttonGuestCheck.addEventListener('click', () => {
+    let guestCheck = inputGuestCheck.value;
+    guestCheck     = capitalize(guestCheck);
+    checkGuest(guestCheck);
+});
 
 //#endregion
