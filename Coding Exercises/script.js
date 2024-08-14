@@ -221,36 +221,39 @@ const outputFizzBuzz = document.getElementById('outputFizzBuzz');
 let number = [];
 
 buttonFizzBuzz.addEventListener('click', () => {
+
+    // disclaimer:
+    // probably could use number.push() and number.pop() instead and manipulate the array in a different way
+
     outputFizzBuzz.textContent = "";
-    number.length = inputFizzBuzz.value;
 
-    for (let i = 0; i < number.length;) {
-        let answer = document.createElement('p');
-        answer.classList.add('fizz-buzz');
+    if (inputFizzBuzz.value >= 1 && inputFizzBuzz.value <= 48) {
 
-        if ((number.length % 3 === 0) && (number.length % 5 === 0)) {
-            answer.textContent = 'FizzBuzz';
-            console.log(number.length + ': FizzBuzz (%3 and %5)');
-        } else
-        if (number.length % 3 === 0) {
-            answer.textContent = 'Fizz';
-            console.log(number.length + ': Fizz (% 3)');
-        } else
-        if (number.length % 5 === 0) {
-            answer.textContent = 'Buzz';
-            console.log(number.length + ': Buzz (% 5)');
-        } else {
-            answer.textContent = number.length.toString();
-            console.log(number.length + ': not divisible');
+        number.length = inputFizzBuzz.value;
+
+        let i = 0;
+        while(i < number.length) {
+            let answer = document.createElement('p');
+            answer.classList.add('fizz-buzz');
+
+            if ((number.length % 3 === 0) && (number.length % 5 === 0)) {
+                answer.textContent = 'FizzBuzz';
+            } else
+            if (number.length % 3 === 0) {
+                answer.textContent = 'Fizz';
+            } else
+            if (number.length % 5 === 0) {
+                answer.textContent = 'Buzz';
+            } else {
+                answer.textContent = number.length.toString();
+            }
+            outputFizzBuzz.appendChild(answer);
+            number.length --;
         }
-        outputFizzBuzz.appendChild(answer);
-        number.length --;
-    }
 
-    // let fb = document.createElement('p');
-    // fb.classList.add('fizz-buzz');
-    // fb.textContent = number;
-    // outputFizzBuzz.appendChild(fb);
+    } else {
+        outputFizzBuzz.textContent = "invalid number";
+    }
 });
 
 
