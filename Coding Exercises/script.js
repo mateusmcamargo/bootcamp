@@ -218,13 +218,12 @@ const inputFizzBuzz  = document.getElementById('inputFizzBuzz');
 const buttonFizzBuzz = document.getElementById('buttonFizzBuzz');
 const outputFizzBuzz = document.getElementById('outputFizzBuzz');
 
-let number = [];
-
 buttonFizzBuzz.addEventListener('click', () => {
-
+    
     // disclaimer:
     // probably could use number.push() and number.pop() instead and manipulate the array in a different way
 
+    let number = [];
     outputFizzBuzz.textContent = "";
 
     if (inputFizzBuzz.value >= 1 && inputFizzBuzz.value <= 48) {
@@ -259,4 +258,46 @@ buttonFizzBuzz.addEventListener('click', () => {
 
 
 //#endregion
+
+//#region finobacci 
+
+//DOM
+const inputFinobacci  = document.getElementById('inputFinobacci');
+const buttonFinobacci = document.getElementById('buttonFinobacci');
+const outputFinobacci = document.getElementById('outputFinobacci');
+
+function finobacciGenerator(num) {
+    let finobacci = [];
+    outputFinobacci.textContent = "";
+
+    if (inputFinobacci.value >= 1 && inputFinobacci.value <= 32) {
+
+        let i = 0;
+
+        while(i <= num) {
+            let p = document.createElement('p');
+            p.classList.add('finobacci');
+
+            if (i === 0 || i === 1) {
+                finobacci.push(i);
+            } else {
+                finobacci.push((finobacci[i-1]) + (finobacci[i-2]));
+            }
+            p.textContent = finobacci[i];
+            outputFinobacci.appendChild(p);
+            i++;
+        }
+    } else {
+        outputFinobacci.textContent = "invalid number";
+    }
+}
+
+buttonFinobacci.addEventListener('click', () => {
+    finobacciGenerator(inputFinobacci.value);
+});
+
+
+//#endregion
+
+
 

@@ -43,10 +43,10 @@ input {
 }
 
 p {
-    margin-bottom: 20px;
+    margin-bottom: 63px;
 }
 
-p.fizz-buzz {
+p.fizz-buzz, p.finobacci {
     margin: 0 8px 6px 0;
     display: inline-block;
 }
