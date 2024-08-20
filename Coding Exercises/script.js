@@ -273,20 +273,23 @@ const inputCalc2      = document.getElementById('inputCalc2');
 const inputCalcResult = document.getElementById('inputCalcResult');
 const buttonCalc      = document.querySelectorAll('.button-calc');
 
-function sum(   num1, num2) {return num1 + num2;}
-function mult(  num1, num2) {return num1 * num2;}
-function div(   num1, num2) {return num1 / num2;}
+//calculator functions
+function sum(num1,    num2) {return num1 + num2;}
+function mult(num1,   num2) {return num1 * num2;}
+function div(num1,    num2) {return num1 / num2;}
 function remain(num1, num2) {return num1 % num2;}
 
-console.log(sum(4, 5));
-
+// iterate the buttons
+// add an event listener to each one
+// use a switch to get each button by its index
+// make the operations and update the input value accoardingly
 buttonCalc.forEach((button, index) => {
     button.addEventListener('click', () => {
         switch(index) {
-            case 0: inputCalcResult.value = sum(inputCalc1.valueAsNumber , inputCalc2.valueAsNumber);    break;
-            case 1: inputCalcResult.value = mult(inputCalc1.valueAsNumber , inputCalc2.valueAsNumber);   break;
-            case 2: inputCalcResult.value = div(inputCalc1.valueAsNumber , inputCalc2.valueAsNumber);    break;
-            case 3: inputCalcResult.value = remain(inputCalc1.valueAsNumber , inputCalc2.valueAsNumber); break;
+            case 0: inputCalcResult.value  = sum(inputCalc1.valueAsNumber,    inputCalc2.valueAsNumber); break;
+            case 1: inputCalcResult.value  = mult(inputCalc1.valueAsNumber,   inputCalc2.valueAsNumber); break;
+            case 2: inputCalcResult.value  = div(inputCalc1.valueAsNumber,    inputCalc2.valueAsNumber); break;
+            case 3: inputCalcResult.value  = remain(inputCalc1.valueAsNumber, inputCalc2.valueAsNumber); break;
             default: inputCalcResult.value = 'invalid button';
         }
     });
