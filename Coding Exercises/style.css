@@ -85,7 +85,10 @@ p.fizz-buzz, p.finobacci {
 @media screen and (min-width: 501px) and (max-width: 899px) {
     .container {
         width: 90vw;
+        height: auto;
         display: grid;
+        justify-items: center;
+        align-items: center;   
         grid-template-columns: 50% 50%;
     }
 }
@@ -93,7 +96,10 @@ p.fizz-buzz, p.finobacci {
 @media screen and (min-width: 900px) and (max-width: 1279px) {
     .container {
         width: 90vw;
+        height: auto;
         display: grid;
+        justify-items: center;
+        align-items: center;   
         grid-template-columns: 25% 25% 25% 25%;
     }
 }
