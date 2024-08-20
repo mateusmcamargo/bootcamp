@@ -268,7 +268,29 @@ buttonFinobacci.addEventListener('click', () => {
 //#region calculator
 
 //DOM
+const inputCalc1      = document.getElementById('inputCalc1');
+const inputCalc2      = document.getElementById('inputCalc2');
+const inputCalcResult = document.getElementById('inputCalcResult');
+const buttonCalc      = document.querySelectorAll('.button-calc');
 
+function sum(   num1, num2) {return num1 + num2;}
+function mult(  num1, num2) {return num1 * num2;}
+function div(   num1, num2) {return num1 / num2;}
+function remain(num1, num2) {return num1 % num2;}
+
+console.log(sum(4, 5));
+
+buttonCalc.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        switch(index) {
+            case 0: inputCalcResult.value = sum(inputCalc1.valueAsNumber , inputCalc2.valueAsNumber);    break;
+            case 1: inputCalcResult.value = mult(inputCalc1.valueAsNumber , inputCalc2.valueAsNumber);   break;
+            case 2: inputCalcResult.value = div(inputCalc1.valueAsNumber , inputCalc2.valueAsNumber);    break;
+            case 3: inputCalcResult.value = remain(inputCalc1.valueAsNumber , inputCalc2.valueAsNumber); break;
+            default: inputCalcResult.value = 'invalid button';
+        }
+    });
+});
 
 //#endregion
 
