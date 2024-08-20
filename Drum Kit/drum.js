@@ -48,10 +48,24 @@ drums.forEach((button, index) => {
 
 document.addEventListener('keydown', (key) => {
 
+    let keyIndex;
+
     keys.forEach(index => {
+
         if (key.code === index) {
             audios[keys.indexOf(index)].currentTime = 0;
             audios[keys.indexOf(index)].play();
+            keyIndex = keys.indexOf(index);
         }
+    });
+    drums.forEach((button, index) => {
+        if(index === keyIndex) {
+            button.classList.add('clicked');
+        }
+    });
+});
+document.addEventListener('keyup', (key) => {
+    drums.forEach(button => {
+        button.classList.remove('clicked');  
     });
 });
