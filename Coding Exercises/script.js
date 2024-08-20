@@ -107,8 +107,6 @@ const pGuestAdd        = document.getElementById('pGuestAdd');
 const inputGuestCheck  = document.getElementById('inputGuestCheck');
 const buttonGuestCheck = document.getElementById('buttonGuestCheck');
 const pGuestCheck      = document.getElementById('pGuestCheck');
-//guest list elements
-const listGuest        = document.getElementById('listGuest');
 
 //variables
 let guests = [];
@@ -125,19 +123,16 @@ function capitalize(string) {
 // function addGuest(guest)
 //  adds a guest to the end of the 'guests' array using the method 'push'
 function addGuest(guest, infoElement) {
-    guests.push(guest);
     guest = capitalize(guest);
+    guests.push(guest);
     infoElement.innerText = guest + ' adicionado.';
-
-    let li = document.createElement('li');
-    li.textContent = guest;
-    listGuest.appendChild(li);
 }
 
 // function checkGuest(guest, infoElement)
 //  checks if a given 'guest' (string) exists in the 'guests' array
 //  based on the output displays a diferent message on a given 'infoElement'
 function checkGuest(guest, infoElement) {
+    guest = capitalize(guest);
     //check if array is empty
     if (guests.length <= 0) {
         infoElement.innerText = 'the guest list is empty :(';
@@ -158,37 +153,6 @@ function checkGuest(guest, infoElement) {
         }
     }
 }
-
-
-
-// // function checkGuest(guest, infoElement)
-// //  checks if a given 'guest' (string) exists in the 'guests' array
-// //  based on the output displays a diferent message on a given 'infoElement'
-// function checkGuest(guest, infoElement) {
-//     //check if array is empty
-//     if (guests.length <= 0) {
-//         infoElement.innerText = 'the guest list is empty :(';
-//     } else {
-//         //if not empty, run a for loop throughout the array
-//         for (let i = 0; i < guests.length; i ++) {
-//             //check 'typeof' 'guest' and if it is empty
-//             if (guest === "" || typeof(guest) !== "string") {
-//                 infoElement.innerText = 'please enter a valid name';
-//             } else {
-//                 //if everything checks out, confirm 'guest' is on the list
-//                 if (guests[i] === guest) {
-//                     guest = capitalize(guest);
-//                     infoElement.innerText = guest + ' is on the list!';
-//                     return;
-//                 }
-//                 //if something goes wrong, confirm 'guest' is NOT on the list
-//                 infoElement.innerText = guest + ' is NOT on the list :(';
-//             }
-//         }
-//     }
-// }
-
-
 
 // eventListener for buttonGuestAdd
 // the input value string is added to the 'guests' array using the 'guestAdd()' function

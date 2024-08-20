@@ -42,8 +42,12 @@ input {
     background-color: white;
 }
 
+.separator {
+    height: 64px;
+}
+
 p {
-    margin-bottom: 63px;
+    height: 0;
 }
 
 p.fizz-buzz, p.finobacci {
