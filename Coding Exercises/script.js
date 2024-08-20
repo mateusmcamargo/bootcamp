@@ -190,7 +190,7 @@ buttonFizzBuzz.addEventListener('click', () => {
     let number = [];
     outputFizzBuzz.textContent = "";
 
-    if (inputFizzBuzz.value >= 1 && inputFizzBuzz.value <= 48) {
+    if (inputFizzBuzz.value >= 1 && inputFizzBuzz.value <= 62) {
 
         number.length = inputFizzBuzz.value;
 
@@ -234,7 +234,7 @@ function finobacciGenerator(num) {
     let finobacci = [];
     outputFinobacci.textContent = "";
 
-    if (inputFinobacci.value >= 1 && inputFinobacci.value <= 32) {
+    if (inputFinobacci.value >= 1 && inputFinobacci.value <= 40) {
 
         let i = 0;
 
