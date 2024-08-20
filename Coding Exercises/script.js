@@ -263,5 +263,12 @@ buttonFinobacci.addEventListener('click', () => {
 
 //#endregion
 
+//#endregion
 
+//#region calculator
+
+//DOM
+
+
+//#endregion
 

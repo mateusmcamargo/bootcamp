@@ -13,7 +13,7 @@
 }
 
 .container {
-    width: 50vw;
+    width: 90vw;
     height: 100vh;
     margin: 0 auto;
     flex-direction: row;
@@ -21,6 +21,33 @@
     align-items: center;
     justify-content: space-evenly;
 }
+
+.box {
+    width: 200px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 340px;
+    background-color: #ebebeb;
+    padding: 20px 10px;
+    margin: 20px 0;
+}
+
+.buttons {
+    height: 78px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.buttons > .buttonCalc {
+    width: 95%;
+    margin: 0;
+}
+.buttons > .buttonCalc:nth-of-type(1) {justify-self: start;}
+.buttons > .buttonCalc:nth-of-type(2) {justify-self: end}
+.buttons > .buttonCalc:nth-of-type(3) {justify-self: start}
+.buttons > .buttonCalc:nth-of-type(4) {justify-self: end}
 
 button {
     width: 100%;
@@ -32,6 +59,9 @@ button {
     color: white;
     background-color: #707070;
     cursor: pointer;
+}
+button:hover {
+    background-color: #5a5a5a;
 }
 
 input {
@@ -53,18 +83,6 @@ p {
 p.fizz-buzz, p.finobacci {
     margin: 0 8px 6px 0;
     display: inline-block;
-}
-
-.box {
-    width: 200px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    height: 340px;
-    background-color: #ebebeb;
-    padding: 20px 10px;
-    margin: 20px 0;
 }
 
 .output {
