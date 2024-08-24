@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #151515;
+}
+body section#game {
+  width: 50vh;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+body section#game div.color {
+  width: 95%;
+  height: 95%;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+body section#game div.color:nth-of-type(1) {
+  border-radius: 100% 0% 0% 0%;
+  background-color: #41B06E;
+}
+body section#game div.color:nth-of-type(1).clicked {
+  background-color: #279151;
+}
+body section#game div.color:nth-of-type(2) {
+  border-radius: 0% 100% 0% 0%;
+  background-color: #FF204E;
+}
+body section#game div.color:nth-of-type(3) {
+  border-radius: 0% 0% 0% 100%;
+  background-color: #FFDB00;
+}
+body section#game div.color:nth-of-type(4) {
+  border-radius: 0% 0% 100% 0%;
+  background-color: #3572EF;
+}
+body section#game div.color:hover {
+  opacity: 0.8;
+}
+body div.middle {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  background-color: #151515;
+}/*# sourceMappingURL=simon.css.map */

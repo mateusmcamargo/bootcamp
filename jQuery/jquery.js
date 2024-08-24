@@ -1,3 +1,16 @@
+$('#li-products ul').hide();
+
+$('#li-products').on('click', function () {
+    $('#li-products ul').toggle();
+});
+
+$(document).on('click', function (e) {
+    let target = e.target;
+    if (!$(target).is('#li-products') && !$(target).parent().is('#li-products')) {
+        $('#li-products ul').hide();
+    }
+});
+
 console.log($('h1').attr('class'));
 $('h1').attr('class', 'test');
 console.log($('h1').attr('class'));
