@@ -1,0 +1,19 @@
+{
+  "name": "bootcamp-npm",
+  "version": "0.0.1",
+  "description": "project created to study node and npm",
+  "main": "npm.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.5.0",
+    "i": "^0.3.7",
+    "npm": "^10.8.2",
+    "sillyname": "^0.1.0",
+    "superheroes": "^4.0.0"
+  }
+}
