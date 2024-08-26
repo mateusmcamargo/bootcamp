@@ -1,0 +1,19 @@
+{
+  "name": "qr-code-generator",
+  "version": "1.0.0",
+  "description": "generates a QR code based on user input and create an image of said code",
+  "main": "qr-code.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@inquirer/prompts": "^5.3.8",
+    "@inquirer/select": "^2.4.7",
+    "@types/node": "^22.5.0",
+    "inquirer": "^10.1.8",
+    "qrcode": "^1.5.4"
+  }
+}
